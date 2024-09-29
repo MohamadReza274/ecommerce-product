@@ -2,18 +2,26 @@ import Navbar from "./components/Navbar";
 import CustomCarousel from "@/components/Caurosel";
 import ProductList from "./components/ProductList";
 import { useRef, useState } from "react";
+import Img1 from "@/assets/images/image-product-1.jpg";
+import Img2 from "@/assets/images/image-product-2.jpg";
+import Img3 from "@/assets/images/image-product-3.jpg";
+import Img4 from "@/assets/images/image-product-4.jpg";
+
+const productImages = [
+  { id: 1, url: Img1 },
+  { id: 2, url: Img2 },
+  { id: 3, url: Img3 },
+  { id: 4, url: Img4 },
+];
 
 function App() {
   const ImageRef = useRef<HTMLImageElement>(null);
 
-  const [selectImageId, setSelectedImageId] = useState<number>(0);
+  const [selectImage, setSelectedImage] = useState(productImages[0]);
 
   const changeProductImage = (imageId: number) => {
-    ImageRef.current?.setAttribute(
-      "src",
-      `src/assets/images/image-product-${imageId}.jpg`
-    );
-    setSelectedImageId(imageId);
+    const img = productImages.filter((img) => img.id === imageId)[0];
+    setSelectedImage(img);
   };
 
   return (
@@ -24,7 +32,7 @@ function App() {
           <img
             ref={ImageRef}
             className="h-72 hidden sm:block rounded w-screen sm:max-w-96 mx-auto sm:w-full object-cover"
-            src="src/assets/images/image-product-1.jpg"
+            src={selectImage.url}
           />
 
           {/* Carousel Mobile view */}
@@ -35,19 +43,19 @@ function App() {
           <div
             className={`hidden sm:flex items-center justify-between mt-4 max-w-96 w-full mx-auto`}
           >
-            {Array.from({ length: 4 }).map((_, i) => (
+            {productImages.map((img) => (
               <a
                 onClick={() => {
-                  changeProductImage(i + 1);
+                  changeProductImage(img.id);
                 }}
               >
                 {" "}
                 <img
-                  key={i}
+                  key={img.id}
                   className={`rounded w-16 hover:opacity-50 ${
-                    selectImageId === i + 1 && "border-yellow-700 border-2"
+                    selectImage.id === img.id && "border-yellow-700 border-2"
                   }`}
-                  src={`src/assets/images/image-product-${i + 1}-thumbnail.jpg`}
+                  src={img.url}
                 />
               </a>
             ))}
