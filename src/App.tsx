@@ -53,7 +53,7 @@ function App() {
                 <img
                   key={img.id}
                   className={`rounded w-16 hover:opacity-50 ${
-                    selectImage.id === img.id && "border-yellow-700 border-2"
+                    selectImage.id === img.id && "border-yellow border-2"
                   }`}
                   src={img.url}
                 />

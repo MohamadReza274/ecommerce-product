@@ -58,7 +58,7 @@ const Cart = () => {
         <Button variant="ghost" size="icon" className="relative">
           <ShoppingCart className="h-5 w-5" />
           {products.length > 0 && (
-            <Badge className="flex items-center justify-center absolute -top-1 right-0 rounded-full px-1.5 py-0.5">
+            <Badge className="flex items-center justify-center bg-yellow hover:bg-lightYellow absolute -top-1 right-0 rounded-full px-1.5 py-0.5">
               {products.length}
             </Badge>
           )}
@@ -74,7 +74,7 @@ const Cart = () => {
         ) : (
           <div className="flex flex-col justify-center gapy-2">
             <Products products={products} />
-            <Button className="bg-[#FF7D1B] hover:bg-[#FFAC6A] mx-2 my-1">
+            <Button className="bg-yellow hover:bg-lightYellow mx-2 my-1">
               Checkout
             </Button>
           </div>

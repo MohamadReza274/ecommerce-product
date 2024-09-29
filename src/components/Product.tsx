@@ -27,13 +27,17 @@ const Product = ({ product }: Props) => {
 
       <div className="flex items-center gap-x-2">
         <div className="flex items-center bg-gray-100 px-4 rounded py-1.5 gap-x-2">
-          <button className="px-2 font-bold text-lg">-</button>
+          <button className="px-2 font-bold text-lg text-yellow hover:text-lightYellow">
+            -
+          </button>
           <span className="px-2">0</span>
-          <button className="px-2 font-bold text-lg">+</button>
+          <button className="px-2 font-bold text-lg text-yellow hover:text-lightYellow">
+            +
+          </button>
         </div>
         <Button
           onClick={() => setProduct(product)}
-          className="bg-[#FF7D1B] hover:bg-[#FFAC6A] text-gray-900 font-semibold"
+          className="bg-yellow hover:bg-lightYellow text-gray-900 font-semibold"
         >
           <ShoppingCartIcon className="w-4 h-4 mr-2" /> Add to cart
         </Button>
