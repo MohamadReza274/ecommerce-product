@@ -4,6 +4,7 @@ import Cart from "./Cart";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import ProfileImage from "@/assets/images/image-avatar.png";
+import LogoImage from "@/assets/images/logo.svg";
 
 const navItems = [
   { id: 1, value: "Collections" },
@@ -42,7 +43,7 @@ const Navbar = () => {
           </Sheet>
         </div>
 
-        <img className=" sm:mr-4" src="src/assets/images/logo.svg" alt="logo" />
+        <img className=" sm:mr-4" src={LogoImage} alt="logo" />
 
         <ul className="list-none items-center gap-x-4 hidden sm:flex">
           {navItems.map((item) => (
